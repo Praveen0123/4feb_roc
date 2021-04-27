@@ -1,0 +1,209 @@
+<section class="-mt-5">
+  <!-- POPUP CLOSE ICON -->
+  <div class="text-sm cursor-pointer pl-80 ">
+    <mat-icon aria-hidden="false"
+              class="pl-16 font-extrabold text-gray-700 ml-80"
+              aria-label="clear"
+              (click)="close()">clear</mat-icon>
+  </div>
+</section>
+
+<section class="pl-5">
+  <div class="grid grid-flow-col grid-rows-1 gap-1">
+    <!-- HEADING OF THE DIALOG BOX -->
+    <div class="flex-4">
+      <h1 class="text-lg font-extrabold">Interested in learning more? Connect with us.</h1>
+    </div>
+
+    <!-- POPUP CLOSE ICON -->
+    <!-- <div class="text-blue-600 cursor-pointer ml-80 flex-4">
+      <mat-icon aria-hidden="false"
+                aria-label="clear"
+                class="content-end pl-28 ml-80"
+                (click)="close()">clear</mat-icon>
+    </div> -->
+  </div>
+</section>
+
+<!-- <section class="relative mt-5">
+  <form [formGroup]="feedbackForm">
+
+
+
+  </form>
+</section> -->
+
+<section class="p-5">
+  <form [formGroup]="interestInputForm"
+        novalidate>
+    <!-- DEGREE ALIGNMENT FILTER -->
+    <div class="grid grid-flow-col grid-rows-1 gap-2 font-normal">
+      <div class="font-normal flex-4">
+        <h3 class="">First Name <span class="text-red-600 ">*</span></h3>
+
+        <mat-form-field class="w-80"
+                        appearance="outline">
+
+          <input matInput
+                 placeholder=""
+                 required
+                 formControlName="first_name">
+
+          <mat-error *ngIf="interestInputForm.controls.first_name.hasError('required')
+                          || (interestInputForm.controls.first_name.invalid && interestInputForm.controls.first_name.touched)">
+            Please enter your first name.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="font-normal flex-4">
+        <h3 class="">Last Name <span class="text-red-600 ">*</span></h3>
+        <mat-form-field class="w-80"
+                        appearance="outline">
+
+          <input matInput
+                 placeholder=""
+                 required
+                 formControlName="last_name">
+
+          <mat-error *ngIf="interestInputForm.controls.last_name.hasError('required')
+                          || (interestInputForm.controls.last_name.invalid && interestInputForm.controls.last_name.touched)">
+            Please enter your last name.
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="grid grid-flow-col grid-rows-1 gap-2">
+      <div class="font-normal flex-4">
+        <h3 class="">Email Address <span class="text-red-600 ">*</span></h3>
+
+        <mat-form-field class=" w-80"
+                        appearance="outline">
+
+          <input matInput
+                 placeholder=""
+                 required
+                 formControlName="email">
+          <mat-error *ngIf="interestInputForm.controls.email.hasError('required')
+                          || (interestInputForm.controls.email.invalid && interestInputForm.controls.email.touched)">
+            Please enter a valid email address.
+          </mat-error>
+
+
+        </mat-form-field>
+      </div>
+
+      <div class="font-normal flex-4">
+        <h3 class="">Phone <span class="text-gray-300 ">(Optional)</span></h3>
+        <mat-form-field class="w-80"
+                        appearance="outline">
+
+          <input matInput
+                 placeholder=""
+                 formControlName="phone"
+                 mask="000-000-0000">
+
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="grid grid-flow-col grid-rows-1 gap-2">
+      <div class="flex-4">
+        <h3 class="">Organization <span class="text-red-600 ">*</span></h3>
+
+        <mat-form-field class="w-80"
+                        appearance="outline">
+
+          <input matInput
+                 placeholder=""
+                 required
+                 formControlName="organization">
+
+          <mat-error *ngIf="interestInputForm.controls.organization.hasError('required')
+                          || (interestInputForm.controls.organization.invalid && interestInputForm.controls.organization.touched)">
+            Please enter a organization.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+
+      <div class="flex-4">
+        <h3 class="">Your Role <span class="text-red-600">*</span></h3>
+        <mat-form-field class="w-80"
+                        appearance="outline">
+          <input matInput
+                 placeholder=""
+                 required
+                 formControlName="job_title">
+          <!-- <mat-select placeholder="Please Select"
+                      required
+                      (selectionChange)="
+                jobtitleSelected($event.value)"
+                      formControlName="job_title">
+            <mat-option [value]="option"
+                        *ngFor="let option of roles">{{ option }}
+            </mat-option>
+          </mat-select> -->
+
+          <mat-error *ngIf="interestInputForm.controls.job_title.hasError('required')
+                          || (interestInputForm.controls.job_title.invalid && interestInputForm.controls.job_title.touched)">
+            Please enter your role.
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="flex-4">
+      <h3 class="">Which products are you interested in learning more? <span class="text-red-600 ">*</span></h3>
+      <mat-form-field class="w-full"
+                      appearance="outline">
+
+        <mat-select placeholder="Please Select"
+                    required
+                    (selectionChange)="
+                productSelected($event.value)"
+                    formControlName="products">
+          <mat-option [value]="option"
+                      *ngFor="let option of products">{{ option }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="interestInputForm.controls.products.hasError('required')
+                          || (interestInputForm.controls.products.invalid && interestInputForm.controls.products.touched)">
+          Please select a products.
+        </mat-error>
+
+      </mat-form-field>
+    </div>
+    <div class="flex-4">
+      <h3 class="">Additional Information <span class="text-red-600 ">*</span></h3>
+      <mat-form-field class="w-full"
+                      appearance="outline">
+
+        <textarea rows="4"
+                  matInput
+                  required
+                  formControlName="description"></textarea>
+
+
+        <mat-error *ngIf="interestInputForm.controls.description.hasError('required')
+                          || (interestInputForm.controls.description.invalid && interestInputForm.controls.description.touched)">
+          Please enter a additional information.
+        </mat-error>
+
+      </mat-form-field>
+    </div>
+    <div class="grid grid-flow-col grid-rows-1 gap-2">
+      <div class="flex-4">
+        <h3><span class="text-red-600 ">* </span> Required Field</h3>
+
+      </div>
+
+      <div class="ml-28 flex-4">
+        <button class="content-end px-4 py-2 text-white bg-blue-600 rounded hover:bg-blue-700 ml-80"
+                (click)="onsumbit()">
+          Send Request
+        </button>
+      </div>
+    </div>
+  </form>
+</section>
